@@ -12,7 +12,7 @@
       </span>
      <span>分类</span>
    </a>
-   <a href="javascript:;"  class="guide_item" :class="{on:$route.path==='/see'}" @click="goTo('/see')">
+   <a href="javascript:;"  class="guide_item" :class="{on:$route.path==='/see'}" @click="goTo('/see/faxian')">
      <span class="item_icon">
         <i class="iconfont icon-waimai"></i>
       </span>

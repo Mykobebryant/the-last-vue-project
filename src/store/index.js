@@ -1,19 +1,14 @@
 /**
  * Created by Administrator on 2019/1/2.
  */
-const actions = {
+import Vue from 'vue'
+import Vuex from 'vuex'
+import actions from './actions'
+import mutations from './mutations'
+import state from './state'
+import getters from './getters'
 
-}
-const mutations = {
-
-}
-const state = {
-
-}
-const getters = {
-
-}
-
+Vue.use(Vuex)
 
 export default new Vuex.Store({
 actions,

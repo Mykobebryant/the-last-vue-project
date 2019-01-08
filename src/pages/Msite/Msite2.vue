@@ -3,18 +3,18 @@
     <header id="header" >
       <div class="header-top">
         <div class="header-line">
-          <a class="logo" @click="$router.replace('/shop')"></a>
+          <a class="logo"></a>
           <div class="header-search">
             <i class="iconfont icon-sousuo4"></i>
             <span class="placeholder">搜索商品，共10000件</span>
           </div>
-          <div class="header-btn" @click="$router.replace('/profile')">登录</div>
+          <div class="header-btn">登录</div>
         </div>
       </div>
       <div class="header-nav">
         <!--头部滚动导航-->
         <div class="header-navList">
-          <ul class="header-navListContent" v-if="headerList.kingKongModule">
+          <ul class="header-navListContent">
             <li class="h-list" v-for="(text,index) in headerList.kingKongModule.kingKongList " :key="index" >
               <span>{{text.text}}</span>
             </li>
@@ -37,7 +37,7 @@
             <div class="slide swiper-slide">
               <a href="javascript:;">
                 <img src="https://yanxuan.nosdn.127.net/78505b6fbbb6b25f1fdb0504dfa852f5.jpg?
-                          imageView&quality=75&thumbnail=750x0" >
+                          imageView&quality=75&thumbnail=750x0" alt="点击查看">
               </a>
             </div>
             <div class="slide swiper-slide">
@@ -82,11 +82,11 @@
       <!--中心区域大列表-->
       <div class="contenlist-centerLast">
         <div class="firstList">
-          <ul class="f-ul" v-if=" headerList.kingKongModule">
+          <ul class="f-ul">
             <li class="f-li" v-for="(text,index) in headerList.kingKongModule.kingKongList ">
               <a>
                 <i class="icon">
-                  <img v-lazy="text.picUrl" >
+                  <img :src="text.picUrl" >
                 </i>
                 <span>
                   {{text.text}}
@@ -95,7 +95,58 @@
             </li>
 
           </ul>
-
+          <!--<ul class="f-ul">-->
+            <!--<li class="f-li">-->
+              <!--<a>-->
+                <!--<i class="icon">-->
+                  <!--<img src="http://yanxuan.nosdn.127.net/42b4ab968ae5b0f38e608131fb68a095.png" alt="">-->
+                <!--</i>-->
+                <!--<span>-->
+                 <!--饮食-->
+                <!--</span>-->
+              <!--</a>-->
+            <!--</li>-->
+            <!--<li class="f-li">-->
+              <!--<a>-->
+                <!--<i class="icon">-->
+                  <!--<img src="http://yanxuan.nosdn.127.net/40e494813fae78a483483d32fd7338b1.png" alt="">-->
+                <!--</i>-->
+                <!--<span>-->
+                 <!--洗护-->
+                <!--</span>-->
+              <!--</a>-->
+            <!--</li>-->
+            <!--<li class="f-li">-->
+              <!--<a>-->
+                <!--<i class="icon">-->
+                  <!--<img src="http://yanxuan.nosdn.127.net/698205eb5a605f0f7c27aebadacd2317.png" alt="">-->
+                <!--</i>-->
+                <!--<span>-->
+                  <!--餐具-->
+                <!--</span>-->
+              <!--</a>-->
+            <!--</li>-->
+            <!--<li class="f-li">-->
+              <!--<a>-->
+                <!--<i class="icon">-->
+                  <!--<img src="http://yanxuan.nosdn.127.net/698205eb5a605f0f7c27aebadacd2317.png" alt="">-->
+                <!--</i>-->
+                <!--<span>-->
+                  <!--文体-->
+                <!--</span>-->
+              <!--</a>-->
+            <!--</li>-->
+            <!--<li class="f-li">-->
+              <!--<a>-->
+                <!--<i class="icon">-->
+                  <!--<img src="http://yanxuan.nosdn.127.net/698205eb5a605f0f7c27aebadacd2317.png" alt="">-->
+                <!--</i>-->
+                <!--<span>-->
+                  <!--特色-->
+                <!--</span>-->
+              <!--</a>-->
+            <!--</li>-->
+          <!--</ul>-->
         </div>
         <!--新人专享-->
         <div class="secondList">
@@ -137,7 +188,6 @@ import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
 import'swiper/dist/js/swiper.min'
 
-
 export default{
   name:'Msite',
   data(){
@@ -148,7 +198,7 @@ export default{
   computed:{
     ...mapState(['headerList'])
   },
-  updated(){
+  mounted(){
     new BScroll('.header-navList',{
       scrollX: true,
       scrollY: false
@@ -162,6 +212,7 @@ export default{
       },
     })
   },
+
 }
 </script>
 <style lang="stylus" rel="stylesheet/stylus" scoped>
@@ -300,35 +351,40 @@ export default{
       /*top 670px*/
       /*left 0*/
       /*background: palegoldenrod*/
+      width 100%
       .f-ul
-        width 100%
+        display flex
         .f-li
-          width 20%
-          float left
+          flex-grow  1
+          flex-basis 0
           display flex
-          align-items center
           justify-content center
-          .icon
-            width 1.1rem
-            height 1.1rem
-            img
-              width 1.5rem;
-              height 1.5rem;
-              display block;
-          span
-            display inline-block
-            font-size 0.4rem
-            color #333333
-            vertical-align middle
-            /*margin-left 10px*/
-            /*box-sizing border-box*/
-            text-align center
+          a
+            display flex
+            flex-direction column
+            align-items center
+            .icon
+              width 1.1rem
+              height 1.1rem
+              display flex
+              justify-content center
+              img
+                width: 1.5rem;
+                height: 1.5rem;
+                display: block;
+            span
+              margin-top 50px
+              display inline-block
+              font-size 0.4rem
+              color #333333
+              box-sizing border-box
+
 
     .secondList
       /*position absolute*/
       /*top 1030px*/
       /*left 0*/
-        /*width 100%*/
+      width 100%
       .s-perNew
         height 1.2rem
         width 100%

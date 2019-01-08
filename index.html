@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5,
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5,
     minimum-scale=0.5, user-scalable=no viewport-fit=cover">
-    <link rel="stylesheet" href="./static/css/reset.css">
-    <link rel="stylesheet" href="http://at.alicdn.com/t/font_518606_6676bmcalnrhehfr.css">
-    <link rel="stylesheet" href="http:////at.alicdn.com/t/font_974658_2m2ure6qczq.css">
-    <title>gshop</title>
-  </head>
-  <body>
-    <div id="app"></div>
-  </body>
-  <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
-  <script type="text/javascript" src="../node_modules/swiper/dist/js/swiper.min.js"></script>
-  <script src="static/js"></script>
-  <script>
-    if ('addEventListener' in document) {
-      document.addEventListener('DOMContentLoaded', function() {
-        FastClick.attach(document.body);
-      }, false);
-    }
-    if(!window.Promise) {
-      document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
-    }
-    //rem适配
-    !(function(){
-      var width = document.documentElement.clientWidth;
-      var styleNode = document.createElement('style');
-      styleNode.innerHTML = 'html{font-size: '+ width/10 +'px !important;}';
-      document.head.appendChild(styleNode);
-    })();
+  <link rel="stylesheet" href="/static/css/reset.css">
+  <link rel="stylesheet" href="http://at.alicdn.com/t/font_518606_6676bmcalnrhehfr.css">
+  <link rel="stylesheet" href="http:////at.alicdn.com/t/font_974658_2m2ure6qczq.css">
+  <title>gshop</title>
+</head>
+<body>
+<div id="app"></div>
+</body>
+<script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+<script type="text/javascript" src="../node_modules/swiper/dist/js/swiper.min.js"></script>
+<script src="static/js"></script>
 
-  </script>
+<script>
+  if ('addEventListener' in document) {
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body);
+    }, false);
+  }
+  if (!window.Promise) {
+    document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"' + '>' + '<' + '/' + 'script>');
+  }
+  //rem适配
+  !(function () {
+    var width = document.documentElement.clientWidth;
+    var styleNode = document.createElement('style');
+    styleNode.innerHTML = 'html{font-size: ' + width / 10 + 'px !important;}';
+    document.head.appendChild(styleNode);
+  })();
+
+</script>
 
 </html>

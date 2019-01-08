@@ -7,6 +7,9 @@ import Shop from '../pages/Shop/Shop.vue'
 import Profile from '../pages/profile/profile.vue'
 import Search from '../pages/search/search.vue'
 import See from '../pages/See/See.vue'
+import Faxian from '../pages/See/Faxian.vue'
+import Zhenxuanjia from '../pages/See/Zhenxuanjia.vue'
+
 
 Vue.use(Router)
 
@@ -20,27 +23,48 @@ export default new Router({
     {
       path: '/msite',
       component: Msite,
-      meta:{}
+      meta:{
+        showFooter:true
+      }
     },
     {
       path: '/shop',
       component: Shop,
-      meta:{}
+      meta:{
+        showFooter:true
+      }
     },
     {
       path: '/profile',
       component: Profile,
-      meta:{}
+      meta:{
+        showFooter:false
+      }
     },
     {
       path: '/search',
       component: Search,
-      meta:{}
+      meta:{
+        showFooter:true
+      }
     },
     {
       path: '/see',
       component: See,
-      meta:{}
+      redirect:'/see/faxian',
+      children:[
+        {
+          path:'/see/faxian',
+          component:Faxian,
+        },
+        {
+          path:'/see/zhenxuanjia',
+          component:Zhenxuanjia
+        }
+      ],
+      meta:{
+        showFooter:true
+      }
     }
   ]
 })
